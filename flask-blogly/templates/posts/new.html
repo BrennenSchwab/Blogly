@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{Add Post{% endblock title %}
+{% block title %}Add Post{% endblock title %}
 
 {% block body %}
 
@@ -21,6 +21,7 @@
       <textarea class="form-control" id="content" name="content"></textarea>
     </div>
   </div>
+  {% if tags %}
   <div class="form-check">
     {% for tag in tags %}
     <div>
@@ -34,12 +35,15 @@
       </label>
     </div>
     {% endfor %}
-  </div>
-
+    </div>
+  {% else %}
+    <a href="/tags" style="color:blue" class="btn btn-sm btn-light">Add Tags</a>
+  {% endif %}
+  <p></p>
   <div class="form-group row">
     <div class="ml-auto mr-3">
-      <a href="/users/{{ user.id }}" class="btn btn-info" style="color:white">Cancel</a>
-      <button type="submit" class="btn btn-success">Post Blog</button>
+      <a href="/users/{{ user.id }}" class="btn position-relative start-80 btn-info" style="color:white">Cancel</a>
+      <button type="submit" class="btn position-relative start-90 btn-success">Post Blog</button>
     </div>
   </div>
 

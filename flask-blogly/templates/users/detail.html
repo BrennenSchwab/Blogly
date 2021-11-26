@@ -34,13 +34,14 @@
       {% for post in user.posts %}
       <li>
         <a href="/posts/{{ post.id }}">{{ post.title }}</a>
-        <small>{{ post.friendly_date }}</small>
+        <small>{{ post.created_at }}</small>
       </li>
       {% endfor %}
     </ul>
 
-    <p><a href="/users/{{ user.id }}/posts/new" class="btn btn-primary">Add Post</a></p>
+    <p></p><a href="/users/{{ user.id }}/posts/new" class="btn btn-primary">Add Post</a>
+    <a href="/tags" style="color:blue" class="btn btn-sm btn-light">Tag Directory</a>
     </div>
   </div>
 
-{% endblock body%}
+{% endblock body %}

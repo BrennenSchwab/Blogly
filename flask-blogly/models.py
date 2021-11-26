@@ -21,7 +21,7 @@ class User(db.Model):
     last_name = db.Column(db.Text, nullable=False)
     image_url = db.Column(db.Text, nullable=False, default=DEFAULT_IMAGE)
 
-    posts = db.relationship("Post", backref="user", cascade="all, delete-orphan")
+    posts = db.relationship("Post", backref="user", cascade="all, delete")
 
     def __repr__(self):
         
@@ -42,11 +42,6 @@ class Post(db.Model):
         
         return f"<Post id={self.id} user_id={self.user_id} title={self.title}>"
     
-    @property
-    def friendly_date(self):
-        """friendly date"""
-
-        return self.created_at.strftime("%a %b %-d  %Y, %-I:%M %p")
 
 class Tag(db.Model):
     

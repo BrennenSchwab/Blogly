@@ -21,7 +21,7 @@
       <textarea class="form-control" id="content" name="content">{{ post.content }}</textarea>
     </div>
   </div>
-  
+  {% if tags %}
   <div class="form-check">
     {% for tag in tags %}
     <div>
@@ -37,6 +37,9 @@
     </div>
     {% endfor %}
   </div>
+  {% else %}
+    <a href="/tags" style="color:blue" class="btn btn-sm btn-light">Add Tags</a>
+  {% endif %}
   <div class="form-group row">
     <div class="ml-auto mr-3">
       <a href="/users/{{ post.user_id }}" class="btn btn-outline-info">Cancel</a>
